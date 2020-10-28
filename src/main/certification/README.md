@@ -44,7 +44,7 @@ ex) Authorization: Basic dG9uZXk6cGfzc3dvcmQ
 
 #### 다른 채널을 통해 인증하기 (OAuth)
 - 생활코딩 이고잉 OAuth 강의
-- 루피 테코톡 OAuth 강의 참고
+- 다른 웹사이트 상의 인증을 하기위한 표준 절차
 
 ### 인증인가에 대한 추가 고민사항
 - 보안 관련
