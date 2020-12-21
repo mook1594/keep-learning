@@ -1,4 +1,4 @@
-#### [GO TO BACK](../README.md)
+#### [GO TO BACK](../../../README.md)
 # 인증과 인가
 
 ### 인증과 인가에 대한 접근

@@ -1,4 +1,4 @@
-#### [GO TO BACK](../README.md)
+#### [GO TO BACK](../../../README.md)
 # JVM
 
 ### 왜 JVM을 이해해야하나?
