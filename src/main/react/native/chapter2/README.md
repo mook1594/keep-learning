@@ -460,7 +460,7 @@ class MainComponent extends Component {
     }
 }
 ```
-### componentWillUnmount 생명주기 메서드
+#### componentWillUnmount 생명주기 메서드
 - 컴포넌트가 파기되기 전에 호출
 - 리스너 삭제
 - 타이머 제거
