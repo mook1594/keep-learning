@@ -347,4 +347,135 @@ constructor() {
 }
 ```
 
+### 2.4 리액트 생명주기 메서드
+- 리액트의 생명주기: 생성(mounting), 갱신, 파기(unmounting)
+#### 마운트(생성)
+- getDerivedStateFromProps
+- render
+- componentDidMount
+#### 갱신
+- getDerivedStateFromProps
+- shouldComponentUpdate
+- render
+- getSnapshotBeforeUpdate
+- componentDidUpdate
 
+=> setState, forceUpdate, 새 props가 컴포넌트로 전달될 때 갱신
+#### 언마운팅(파기)
+- componentWillUnmount
+
+#### getDerivedStateFromProps 메서드
+- 컴포넌트가 생성될 때
+- 컴포넌트가 새 props를 전달 받을 때
+```java
+export default class App extends Component {
+    state = {
+        userLoggedIn: false
+    }
+    static getDerivedStateFromProps(nextProps, nextState) {
+        if (nextProps.user.authenticated) {
+            return {
+                userLoggedIn: true
+            }
+        }
+        return null
+    }
+    render() {
+        return (
+            <View style={styles.container}>
+                {
+                    this.state.userLoggedIn && (
+                        <AuthenticatedComponent />
+                    )
+                }
+            </View>
+        )
+    }
+}
+```
+#### componentDidMount 생명주기 메서드
+- 컴포넌트가 로딩되고서 한 번만 호출
+- Ajax 호출로 데이터 처리
+- setTimeout 처리
+- 다른 자바스크립트 프레임워크들과 통합하기에 적절한 위치 
+```javascript
+class MainComponent extends Component {
+    constructor() {
+        super()
+        this.create = { loading: true, data: {} }
+    }
+    componentDidMount() {
+        #simulate ajax call
+        setTimeout(() => {
+            this.setState({
+                loading: false,
+                data: {name: 'Nader Dabit', age: 35}
+            })
+        }, 2000)
+    }
+    render() {
+        if(this.state.loading) {
+            return <Text>Loading</Text>
+        }
+        const { name, age } = this.state.data
+        return (
+            <View>
+                <Text>Name: {name}</Text>
+                <Text>Age: {age}</Text>
+            </View>
+        )
+    }
+}
+```
+#### shouldComponentUpdate 생명주기 메서드
+- 랜더링 여부에 따라 Boolean 으로 리턴
+```javascript
+class MainComponent extends Component {
+    shouldComponentUpdate(nextProps, nextState) {
+        if(nextProps.name !== this.props.name) {
+            return true
+        }
+        return false
+    }
+    render() {
+        return <SomeComponent />
+    }
+}
+```
+#### componentDidUpdate 생명주기 메서드
+- 컴포넌트가 갱신되면서 재 랜더링된 후 호출
+- 이전 state와 이전 props 인수를 갖는다
+- 리액트 17버전에서는 UNSAFE_componentWillUpdate()
+```javascript
+class MainComponent extends Component {
+    componentDidUpdate(prevProps, prevState) {
+        if(prevState.showToggled === this.state.showToggled) {
+            this.setState({
+                showToggled: !showToggled
+            })     
+        }
+    }
+    render() {
+        return <SomeComponent />
+    }
+}
+```
+### componentWillUnmount 생명주기 메서드
+- 컴포넌트가 파기되기 전에 호출
+- 리스너 삭제
+- 타이머 제거
+```javascript
+class MainComponent extends Component {
+    handleClick() {
+        this._timeout = setTimeout(() => {
+            this.openWidget()
+        }, 2000)
+    }
+    componentWillUnmount() {
+        clearTimeout(this._timeout)
+    }
+    render() {
+        return <SomeComponent handleClick={() => this.handleClick()} />
+    }
+}
+```
