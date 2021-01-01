@@ -30,4 +30,7 @@
 
 ### Heap
 - 모든 Thread가 공유하는 메모리 영역
-- JVM에서 메모리 할당, 해제(GC)가 발생하는 부
+- JVM에서 메모리 할당, 해제(GC)가 발생하는 부분
+
+### 참고
+- [블로그](https://www.holaxprogramming.com/2017/10/09/java-jvm-performance/)
