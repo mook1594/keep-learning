@@ -1,3 +1,5 @@
+#### [GO TO BACK](../README.md)
+
 # JPA
 
 ### 왜 JPA를 사용하는가?
@@ -81,3 +83,5 @@
 - 1차 캐시에 저장하고 쓰기지연 SQL저장소에 쿼리를 쌓는다.
 - commit 시에 쿼리를 DB로 날린다.
 
+### 1차 캐시 와 2차 캐시
+[참고](https://gunju-ko.github.io/jpa/2019/01/14/JPA-2%EC%B0%A8%EC%BA%90%EC%8B%9C.html)
