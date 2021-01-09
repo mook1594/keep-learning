@@ -1,4 +1,4 @@
-### [GO TO BACK](../README.md)
+#### [GO TO BACK](../README.md)
 
 # 2. 5분 만에 워드프레스 설치하기
 > 블로그 인프라 만들기  
